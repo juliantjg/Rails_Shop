@@ -1,4 +1,4 @@
-Rails Shop App
+# Rails Shop App
 
 Team:
 Julian Tjiong (s3786866@student.rmit.edu.au)
