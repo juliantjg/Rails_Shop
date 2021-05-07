@@ -24,10 +24,113 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #cccccc;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+
+      .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #000000;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
+      .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        font-size: 36px;
+        margin-right: 50px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+
+      .sidenav .spana {
+        font-size: 18px;
+        padding-bottom: 25px;
+      }
+      
+    </style>
+
   </head>
 
   <body style="background-color: #e6e6e6;">
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="row" style="height: 80px;">
+      </div>
+      
+      <div class="spana">
+        <%= link_to "/home" do %>
+          <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+          Shop
+        <% end %>
+      </div>
+      
+      <div class="links">
+        <a href="/collection/men">Men</a> <br>
+        <a href="/collection/women">Women</a> <br>
+        <a href="/collection/kid">Kids</a> <br>
+        <a href="/collection/new">New-Ins</a> <br>
+      </div>
+
+      <hr>
+
+      <div class="spana">
+        <%= link_to "/collection/all" do %>
+          <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+          Save
+        <% end %>
+      </div>
+
+      <div class="row" style="height: 80px;">
+      </div>
+
+      <div class="spana">
+        <%= link_to "/help" do %>
+          <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+          Help & Support
+        <% end %>
+      </div>
+
+    </div>
+
     <%= render 'home/header' %>
     <%= yield %>
-  </body>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+
+  </body> 
 </html>

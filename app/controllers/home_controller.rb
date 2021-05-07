@@ -8,10 +8,25 @@ class HomeController < ApplicationController
     items = Item.all
     sortedItems = items.sort_by &:popularity
     @popularItems = sortedItems.reverse.first(6)
+
+    # Get number of items from different collections
+    @womenSize = Item.where(category: 'women').size
+    @menSize = Item.where(category: 'men').size
+    @kidSize = Item.where(category: 'kids').size
+    @newSize = Item.where(category: 'new').size
   end
 
   def collection
-    @type = params[:type].upcase
-    @items = Item.where(category: params[:type])
+    parameter = params[:type]
+    if parameter == 'all'
+      @type = 'ALL ITEMS'
+      @items = Item.all
+    else
+      @type = params[:type].upcase
+      @items = Item.where(category: params[:type])
+    end
+  end
+
+  def help
   end
 end
