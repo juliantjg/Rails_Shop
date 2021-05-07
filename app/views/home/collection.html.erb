@@ -1,0 +1,10 @@
+<div class="container">
+    <center> <h1> <%= @type %> </h1> </center>
+    <br>
+    <div class="row">
+        <% @items.each do |item| %>
+            <h4> <%= item.name %>  </h4>
+            <br>
+        <% end %>
+    </div>
+</div>
