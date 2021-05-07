@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     # Generate the 6 most popular items
     items = Item.all
     sortedItems = items.sort_by &:popularity
-    @popularItems = sortedItems.reverse.first(6)
+    @popularItems = sortedItems.reverse.first(4)
 
     # Get number of items from different collections
     @womenSize = Item.where(category: 'women').size
