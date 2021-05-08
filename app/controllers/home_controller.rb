@@ -45,10 +45,11 @@ class HomeController < ApplicationController
     itemId_toSave = params[:itemId]
     itemTargetList = Item.where(id: itemId_toSave)
     itemTarget = itemTargetList[0]
-    itemTarget.saveList = true
+    itemSaveList = itemTarget.saveList
+    itemTarget.saveList = !itemSaveList
     itemTarget.save
 
-    redirect_to "/home"
+    redirect_to("/home")
   end
 
 end
