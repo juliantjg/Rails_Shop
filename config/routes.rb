@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/collection/:type', to: 'home#collection'
   get '/help', to: 'home#help'
+  post '/save', to: 'home#save'
 end

@@ -2,8 +2,16 @@ class HomeController < ApplicationController
   def index
     # Generate the random first item
     randomNum = rand(1..Item.count)
-    @randomItem = Item.find(randomNum)
-    
+    retrievedItem = Item.find(randomNum)
+
+    # Do not show item from saveList
+    while retrievedItem.saveList == true 
+      randomNum = rand(1..Item.count)
+      retrievedItem = Item.find(randomNum)
+    end
+
+    @randomItem = retrievedItem
+
     # Generate the 6 most popular items
     items = Item.all
     sortedItems = items.sort_by &:popularity
@@ -21,6 +29,9 @@ class HomeController < ApplicationController
     if parameter == 'all'
       @type = 'ALL ITEMS'
       @items = Item.all
+    elsif parameter == 'save'
+      @type = 'SAVED ITEMS'
+      @items = Item.where(saveList:true)
     else
       @type = params[:type].upcase
       @items = Item.where(category: params[:type])
@@ -29,4 +40,15 @@ class HomeController < ApplicationController
 
   def help
   end
+
+  def save
+    itemId_toSave = params[:itemId]
+    itemTargetList = Item.where(id: itemId_toSave)
+    itemTarget = itemTargetList[0]
+    itemTarget.saveList = true
+    itemTarget.save
+
+    redirect_to "/home"
+  end
+
 end
