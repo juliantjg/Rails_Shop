@@ -3,8 +3,11 @@
     <br>
     <div class="row">
         <% @items.each do |item| %>
-            <h4> <%= item.name %>  </h4>
-            <br>
+            <div class="col-md-3">
+                <div style="height: 300px; background-color: silver;">
+                    <h4> <%= item.name %>  </h4>
+                </div>
+            </div>
         <% end %>
     </div>
 </div>

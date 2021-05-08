@@ -64,32 +64,40 @@
         </div>
         <br><br>
         <%= link_to "collection/women" do %>
-            <div class="row" style="height: 300px; background-color: white;">
-                <h4> <b> Women </b> </h4>
-                <h5> <%= @womenSize %> ITEMS </h5>
+            <div class="row">
+                <div style="height: 300px; background-color: white;">
+                    <h4> <b> Women </b> </h4>
+                    <h5> <%= @womenSize %> ITEMS </h5>
+                </div>
             </div>
         <% end %>
         <br>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <%= link_to "collection/men" do %>
-                    <div class="row" style="height: 150px; background-color: white;">
-                        <h4> <b> Men </b> </h4>
-                        <h5> <%= @womenSize %> ITEMS </h5>
+                    <div class="row">
+                        <div style="height: 150px; background-color: white;">
+                            <h4> <b> Men </b> </h4>
+                            <h5> <%= @womenSize %> ITEMS </h5>
+                        </div>
                     </div>
                 <% end %>
                 <br>
                 <%= link_to "collection/kids" do %>
-                    <div class="row" style="height: 150px; background-color: white;">
-                        <h4> <b> Kids </b> </h4>
-                        <h5> <%= @womenSize %> ITEMS </h5>
+                    <div class="row">
+                        <div style="height: 150px; background-color: white;">
+                            <h4> <b> Kids </b> </h4>
+                            <h5> <%= @womenSize %> ITEMS </h5>
+                        </div>
                     </div>
                 <% end %>
             </div>
             <%= link_to "collection/new" do %>
-                <div class="col-md-6 col-md-offset-1" style="height: 315px; background-color: white;">
-                    <h4> <b> New-Ins </b> </h4>
-                    <h5> <%= @womenSize %> ITEMS </h5>
+                <div class="col-md-6">
+                    <div style="height: 330px; background-color: white;">
+                        <h4> <b> New-Ins </b> </h4>
+                        <h5> <%= @womenSize %> ITEMS </h5>
+                    </div>
                 </div>
             <% end %>
         </div>
