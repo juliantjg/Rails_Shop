@@ -42,6 +42,7 @@ class HomeController < ApplicationController
   end
 
   def save
+    location = params[:location]
     itemId_toSave = params[:itemId]
     itemTargetList = Item.where(id: itemId_toSave)
     itemTarget = itemTargetList[0]
@@ -49,7 +50,7 @@ class HomeController < ApplicationController
     itemTarget.saveList = !itemSaveList
     itemTarget.save
 
-    redirect_to("/home")
+    redirect_to(location)
   end
 
 end
