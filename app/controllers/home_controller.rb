@@ -30,7 +30,7 @@ class HomeController < ApplicationController
       @type = 'ALL ITEMS'
       @items = Item.all
     elsif parameter == 'save'
-      @type = 'SAVED ITEMS'
+      @type = 'SAVE'
       @items = Item.where(saveList:true)
     else
       @type = params[:type].upcase
