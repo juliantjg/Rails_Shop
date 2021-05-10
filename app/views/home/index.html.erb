@@ -83,13 +83,23 @@
         <h1> Newsletter </h1>
         <h4> sign up with our newsletter... </h4>
         <br>
-
+        
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
-            <span class="input-group-addon" id="basic-addon2">@example.com</span>
+        <form action="/email" method="POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <input type="text" class="form-control" aria-describedby="basic-addon2" name="email">
+        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+
+
+            <button type="submit"><span class="glyphicon glyphicon-plus-sign" style="font-size: 35px;" aria-hidden="true"></span></button>
+
+    </form>
+
+        
+
             
         </div>
-        <input class="btn btn-default" type="submit" value="Submit">
         <br><br><br>
     </div>
 </div>

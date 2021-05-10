@@ -27,6 +27,14 @@ class HomeController < ApplicationController
     end
   end
 
+  def submit
+    #puts("works")
+
+    UserMailer.welcome_email(params[:email]).deliver
+    
+    redirect_to("/home")
+  end
+
   def help
   end
 end
