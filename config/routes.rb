@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/collection/:type', to: 'home#collection'
   get '/help', to: 'home#help'
   post '/save', to: 'home#save'
+  post '/email', to: 'home#submit'
 end
