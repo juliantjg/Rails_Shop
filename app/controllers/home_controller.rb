@@ -39,11 +39,9 @@ class HomeController < ApplicationController
   end
 
   def submit
-    #puts("works")
-
-    UserMailer.welcome_email(params[:email]).deliver
+    NewsletterMailer.newsMailer(params[:email]).deliver
     
-    redirect_to("/home")
+    #redirect_to("/home")
   end
 
   def help
