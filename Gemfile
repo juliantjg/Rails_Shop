@@ -43,7 +43,7 @@ gem 'carrierwave', '~> 2.2', '>= 2.2.1'
 gem 'mini_magick', '~> 4.11'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
-
+gem "aws-sdk-s3", require: false
 
 
 # Use ActiveStorage variant
