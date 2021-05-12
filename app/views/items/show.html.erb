@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row" style="height: 300px; background-image: linear-gradient(to top, grey , silver);">
+        image
+    </div>
+    <div class="row" style="background-color: silver;">
+        <h2> <%= @item.name %> </h2>
+        <h3> <%= @item.price %> </h3>
+        <h5> <%= @item.description %> </h5>
+
+        <hr>
+
+        <form action="/item/tobag" method="POST">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <center>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4> SIZE </h4>
+                    <select name="size" id="size">
+                        <option value="xs">XS</option>
+                        <option value="s">S</option>
+                        <option value="m">M</option>
+                        <option value="l">L</option>
+                        <option value="xl">XL</option>
+                    </select>
+                </div>
+                <div class="col-md-4" style="border-left: 1px solid white;">
+                    <h4> COLOUR </h4>
+                    <select name="colour" id="colour">
+                        <option value="blue">BLUE</option>
+                        <option value="green">GREEN</option>
+                        <option value="red">RED</option>
+                    </select>
+                </div>
+                <div class="col-md-4" style="border-left: 1px solid white;">
+                    <h4> QUANTITY </h4>
+                    <select name="quantity" id="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+            
+            </center>
+            <br><br>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Add to bag</button>
+        </form>
+        <br>
+        <center> <h6> FREE SHIPPING STARTING $250 </h6> </center>
+       
+    </div>
+
+</div>

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+    has_one :shoppingbag
+
     validates :username, presence: true, length: { maximum: 25 }
     validates :email, presence: true, length: { maximum: 100 },
                 format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i},
@@ -13,4 +15,5 @@ class User < ApplicationRecord
                                         BCrypt::Engine.cost
         BCrypt::Password.create(string, cost: cost)
     end
+
 end

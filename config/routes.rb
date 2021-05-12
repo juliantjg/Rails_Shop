@@ -18,5 +18,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy' 
 
+  # Item APIs
+  get '/item/:id', to: 'items#show'
+  post '/item/tobag', to: 'items#tobag'
+
   resources :users
 end
