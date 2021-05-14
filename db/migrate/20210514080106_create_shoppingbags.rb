@@ -5,8 +5,7 @@ class CreateShoppingbags < ActiveRecord::Migration[5.2]
       t.string :colour
       t.string :size
       t.integer :quantity
-
-      t.belongs_to :user, foreign_key:true
+      t.integer :user_id
 
       t.timestamps
     end

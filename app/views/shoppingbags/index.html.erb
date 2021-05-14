@@ -1,3 +1,18 @@
 <div class="container">
-    <%= @bag%>
+    <% @shoppingbag.each do |shop| %>
+        <% item = Item.find(shop.item_id) %>
+        <div class="row">
+            <div class="col-md-2" style="height: 200px; background-color: silver;">
+                image
+            </div>
+            <div class="col-md-10">
+                Name: <%= item.name %> <br>
+                Price: <%= item.price %> <br>
+                Colour: <%= shop.colour %> <br>
+                Size: <%= shop.size %> <br>
+                Quantity: <%= shop.quantity %>
+            </div>
+        </div>
+        <br>
+    <% end %>
 </div>

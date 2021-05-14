@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   post '/item/tobag', to: 'items#tobag'
 
   # Shoppingbag APIs
-  post '/shoppingbag/index', to: 'shoppingbags#index'
+  post '/shoppingbag/add', to: 'shoppingbags#add'
+  get '/shoppingbag/index', to: 'shoppingbags#index'
 
   resources :users
 end

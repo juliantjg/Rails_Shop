@@ -9,7 +9,7 @@
 
         <hr>
 
-        <form action="/shoppingbag/index" method="POST">
+        <form action="/shoppingbag/add" method="POST">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
             <center>
             <input type="hidden" value="<%= @item.id %>" name="itemId">
@@ -46,8 +46,11 @@
             
             </center>
             <br><br>
-
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Add to bag</button>
+            <% if @chosen == false  %>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Add to bag</button>
+            <% else %>
+                <center> <h4> Already in bag </h4> </center>
+            <% end %>
         </form>
         <br>
         <center> <h6> FREE SHIPPING STARTING $250 </h6> </center>
