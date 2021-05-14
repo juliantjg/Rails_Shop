@@ -4,6 +4,6 @@ class ItemsController < ApplicationController
     end
 
     def tobag
-        
+        # newItem = current_user.shoppingbag.items.build()
     end
 end

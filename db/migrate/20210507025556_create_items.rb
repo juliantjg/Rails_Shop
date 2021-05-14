@@ -9,7 +9,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :category
       t.integer :popularity
 
-      t.belongs_to :shoppingbag, foreign_key: true
 
       t.timestamps
     end
