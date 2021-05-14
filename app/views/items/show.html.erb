@@ -9,9 +9,10 @@
 
         <hr>
 
-        <form action="/item/tobag" method="POST">
+        <form action="/shoppingbag/index" method="POST">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
             <center>
+            <input type="hidden" value="<%= @item.id %>" name="itemId">
             <div class="row">
                 <div class="col-md-4">
                     <h4> SIZE </h4>

@@ -22,5 +22,8 @@ Rails.application.routes.draw do
   get '/item/:id', to: 'items#show'
   post '/item/tobag', to: 'items#tobag'
 
+  # Shoppingbag APIs
+  post '/shoppingbag/index', to: 'shoppingbags#index'
+
   resources :users
 end
