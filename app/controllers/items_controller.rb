@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
     def show
         @item = Item.find(params[:id])
-        if Shoppingbag.find_by(item_id: params[:id]) != nil
+        if current_user != nil and Shoppingbag.find_by(item_id: params[:id]) != nil
             @chosen = true
-        elsif 
+        else
             @chosen = false
         end
     end

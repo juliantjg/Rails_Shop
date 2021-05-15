@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/collection/:type', to: 'home#collection'
   get '/help', to: 'home#help'
   post '/save', to: 'home#save'
+  get '/home/login', to: 'home#login'
 
   # User APIs
   get 'users/new'
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   # Shoppingbag APIs
   post '/shoppingbag/add', to: 'shoppingbags#add'
   get '/shoppingbag/index', to: 'shoppingbags#index'
+  post '/shoppingbag/checkout', to: 'shoppingbags#checkout'
 
   resources :users
 end

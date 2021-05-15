@@ -53,4 +53,6 @@ class HomeController < ApplicationController
     redirect_to(location)
   end
 
+  def login
+  end
 end
