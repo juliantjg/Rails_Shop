@@ -1,49 +1,52 @@
 <div class="container">
-    <br><br>
-    <% if !@empty %>
-        <center> <h3> Bag (<%= @size %>) </h3> </center>
-        <% @shoppingbag.each do |shop| %>
-            <% item = Item.find(shop.item_id) %>
+    <div class="col-md-6 col-md-offset-3">
+        <br><br>
+        <% if !@empty %>
+            <center> <h3> Bag (<%= @size %>) </h3> </center>
+            <br><br>
+            <% @shoppingbag.each do |shop| %>
+                <% item = Item.find(shop.item_id) %>
+                <div class="row">
+                    <div class="col-md-4" style="height: 200px; background-color: silver;">
+                        image
+                    </div>
+                    <div class="col-md-8">
+                        Name: <%= item.name %> <br>
+                        Price: <%= item.price %> <br>
+                        Colour: <%= shop.colour %> <br>
+                        Size: <%= shop.size %> <br>
+                        Quantity: <%= shop.quantity %>
+                    </div>
+                </div>
+                <br>
+                <hr>
+            <% end %>
+            <br><br>
+
             <div class="row">
-                <div class="col-md-2" style="height: 200px; background-color: silver;">
-                    image
+                <div class="col-md-9">
+                    <h1> Total </h1>
                 </div>
-                <div class="col-md-10">
-                    Name: <%= item.name %> <br>
-                    Price: <%= item.price %> <br>
-                    Colour: <%= shop.colour %> <br>
-                    Size: <%= shop.size %> <br>
-                    Quantity: <%= shop.quantity %>
+                <div class="col-md-3">
+                    <h1> $<%= @subTotal %> </h1>
                 </div>
+            </div>
+            <br><br><br>
+            <div class="row">
+                <form action="/shoppingbag/checkout" method="POST">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                </form>
             </div>
             <br>
-            <hr>
+        <% else %>
+            <div class="row" style="height: 100px;">
+            </div>
+            <div class="row">
+                <h1> It's lonely here </h1>
+                <h5> <p> Start shopping and add more items to the bag, <br> 
+                        and then there will be joy here... </p></h5> 
+            </div>
         <% end %>
-        <br><br>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-1">
-                <h1> Total </h1>
-            </div>
-            <div class="col-md-3">
-                <h1> $<%= @subTotal %> </h1>
-            </div>
-        </div>
-        <br><br><br>
-        <div class="row">
-            <form action="/shoppingbag/checkout" method="POST">
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Checkout</button>
-            </form>
-        </div>
-        <br>
-    <% else %>
-        <div class="row" style="height: 100px;">
-        </div>
-        <div class="row">
-            <h1> It's lonely here </h1>
-            <h5> <p> Start shopping and add more items to the bag, <br> 
-                    and then there will be joy here... </p></h5> 
-        </div>
-    <% end %>
+    </div>
 </div>
