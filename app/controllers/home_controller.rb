@@ -38,6 +38,12 @@ class HomeController < ApplicationController
     end
   end
 
+  def submit
+    NewsletterMailer.newsMailer(params[:email]).deliver
+    
+    #redirect_to("/home")
+  end
+
   def help
   end
 

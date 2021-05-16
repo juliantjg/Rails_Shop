@@ -33,4 +33,5 @@ Rails.application.routes.draw do
   post '/shoppingbag/checkout', to: 'shoppingbags#checkout'
 
   resources :users
+  post '/email', to: 'home#submit'
 end
