@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_05_16_141019) do
     t.boolean "saveList"
     t.string "category"
     t.integer "popularity"
+    t.boolean "favourite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

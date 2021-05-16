@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.boolean :saveList
       t.string :category
       t.integer :popularity
+      t.boolean :favourite
 
 
       t.timestamps

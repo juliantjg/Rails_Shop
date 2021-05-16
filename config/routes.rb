@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get '/items/search', to: 'items#search'
   post '/items/search', to: 'items#search'
 
+  # Favourite API
+  post '/favourite', to: 'items#favourite'
+
   # Shoppingbag APIs
   post '/shoppingbag/add', to: 'shoppingbags#add'
   get '/shoppingbag/index', to: 'shoppingbags#index'

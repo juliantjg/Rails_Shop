@@ -14,4 +14,17 @@ class ItemsController < ApplicationController
             @found = Item.where("name LIKE ?", "%" + key + "%")
         end
     end
+
+    def favourite
+        location = params[:location]
+        itemId_toSave = params[:itemId]
+        itemTargetList = Item.where(id: itemId_toSave)
+        itemTarget = itemTargetList[0]
+        itemFavourite = itemTarget.favourite
+        itemTarget.favourite = !itemFavourite
+        itemTarget.save
+
+        redirect_to(location)
+
+    end
 end
