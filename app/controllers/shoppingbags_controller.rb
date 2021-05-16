@@ -18,6 +18,14 @@ class ShoppingbagsController < ApplicationController
                 end
 
                 @subTotal = totalPrice
+
+                user_rated = Rated.where(user_id: current_user.id)
+
+                if user_rated.size == 0
+                    @rated = false
+                else
+                    @rated = true
+                end
             end
         end
     end
@@ -39,10 +47,13 @@ class ShoppingbagsController < ApplicationController
 
     def checkout
         Shoppingbag.where(user_id: current_user).destroy_all
-        # bags = Shoppingbag.where(user_id: current_user.id)
-        # bags.each do |bag|
-        #     bag.destroy
-        # end
+
+        user_rated = Rated.where(user_id: current_user.id)
+
+        if user_rated.size == 0
+            Rated.create(user_id: current_user.id)
+        end
+
         redirect_to("/shoppingbag/index")
     end
 end
