@@ -8,4 +8,10 @@ class ItemsController < ApplicationController
         end
     end
 
+    def search
+        if params[:key] != nil and params[:key] != ""
+            key = params[:key]
+            @found = Item.where("name LIKE ?", "%" + key + "%")
+        end
+    end
 end

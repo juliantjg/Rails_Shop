@@ -3,10 +3,11 @@
         image
     </div>
     <div class="row" style="background-color: silver;">
+        <center>
         <h2> <%= @item.name %> </h2>
-        <h3> <%= @item.price %> </h3>
+        <h3> $<%= @item.price %> </h3>
         <h5> <%= @item.description %> </h5>
-
+        </center>
         <hr>
 
         <form action="/shoppingbag/add" method="POST">

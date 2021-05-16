@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get '/item/:id', to: 'items#show'
   post '/item/tobag', to: 'items#tobag'
 
+  # Search API
+  get '/items/search', to: 'items#search'
+  post '/items/search', to: 'items#search'
+
   # Shoppingbag APIs
   post '/shoppingbag/add', to: 'shoppingbags#add'
   get '/shoppingbag/index', to: 'shoppingbags#index'
