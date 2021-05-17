@@ -1,77 +1,79 @@
 <div class="container">
-    <div class="row" style="height: 300px; background-image: linear-gradient(to top, grey , silver);">
-        image
-    </div>
-    <div class="row" style="background-color: silver;">
-        <center>
-        <h2> <%= @item.name %> </h2>
-
-         <form action="/favourite" method="POST">
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <input type="hidden" value="<%= @item.id %>" name="itemId">
-            <input type="hidden" value="/item/<%= @item.id %>" name="location">
-            <% if @item.favourite %>
-                <button type="submit" class="btn btn-info">Favourite</button>
-            <% else %>
-                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
-            <% end %>
-        </form>
-
-
-        <h3> $<%= @item.price %> </h3>
-        <h5> <%= @item.description %> </h5>
-        </center>
-        <hr>
-
-        <form action="/shoppingbag/add" method="POST">
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="row" style="height: 300px; background-image: linear-gradient(to top, grey , silver);">
+            image
+        </div>
+        <div class="row" style="background-color: silver;">
             <center>
-            <input type="hidden" value="<%= @item.id %>" name="itemId">
-            <div class="row">
-                <div class="col-md-4">
-                    <h4> SIZE </h4>
-                    <select name="size" id="size">
-                        <option value="xs">XS</option>
-                        <option value="s">S</option>
-                        <option value="m">M</option>
-                        <option value="l">L</option>
-                        <option value="xl">XL</option>
-                    </select>
-                </div>
-                <div class="col-md-4" style="border-left: 1px solid white;">
-                    <h4> COLOUR </h4>
-                    <select name="colour" id="colour">
-                        <option value="blue">WHITE</option>
-                        <option value="green">BLACK</option>
-                        <option value="red">YELLOW</option>
-                        <option value="blue">BLUE</option>
-                        <option value="green">GREEN</option>
-                        <option value="red">RED</option>
-                    </select>
-                </div>
-                <div class="col-md-4" style="border-left: 1px solid white;">
-                    <h4> QUANTITY </h4>
-                    <select name="quantity" id="quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-            </div>
-            
+            <h2> <%= @item.name %> </h2>
+
+            <form action="/favourite" method="POST">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input type="hidden" value="<%= @item.id %>" name="itemId">
+                <input type="hidden" value="/item/<%= @item.id %>" name="location">
+                <% if @item.favourite %>
+                    <button type="submit" class="btn btn-info">Favourite</button>
+                <% else %>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+                <% end %>
+            </form>
+
+
+            <h3> $<%= @item.price %> </h3>
+            <h5> <%= @item.description %> </h5>
             </center>
-            <br><br>
-            <% if @chosen == false  %>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Add to bag</button>
-            <% else %>
-                <center> <h4> Already in bag </h4> </center>
-            <% end %>
-        </form>
-        <br>
-        <center> <h6> FREE SHIPPING STARTING $250 </h6> </center>
-        
+            <hr>
+
+            <form action="/shoppingbag/add" method="POST">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <center>
+                <input type="hidden" value="<%= @item.id %>" name="itemId">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4> SIZE </h4>
+                        <select name="size" id="size">
+                            <option value="xs">XS</option>
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="xl">XL</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4" style="border-left: 1px solid white;">
+                        <h4> COLOUR </h4>
+                        <select name="colour" id="colour">
+                            <option value="blue">WHITE</option>
+                            <option value="green">BLACK</option>
+                            <option value="red">YELLOW</option>
+                            <option value="blue">BLUE</option>
+                            <option value="green">GREEN</option>
+                            <option value="red">RED</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4" style="border-left: 1px solid white;">
+                        <h4> QUANTITY </h4>
+                        <select name="quantity" id="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                
+                </center>
+                <br><br>
+                <% if @chosen == false  %>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Add to bag</button>
+                <% else %>
+                    <center> <h4> Already in bag </h4> </center>
+                <% end %>
+            </form>
+            <br>
+            <center> <h6> FREE SHIPPING STARTING $250 </h6> </center>
+            
+        </div>
+        <br><br>
     </div>
-    <br><br>
 </div>
