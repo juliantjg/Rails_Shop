@@ -32,22 +32,75 @@
                     <div class="col-md-4">
                         <h4> SIZE </h4>
                         <select name="size" id="size">
-                            <option value="xs">XS</option>
-                            <option value="s">S</option>
-                            <option value="m">M</option>
-                            <option value="l">L</option>
-                            <option value="xl">XL</option>
+                            <% if @item.size_filter == "xs" %>
+                                <option value="xs" selected>PRESET - XS</option>
+                            <% else %>
+                                <option value="xs">XS</option>
+                            <% end %>
+
+                            <% if @item.size_filter == "s" %>
+                                <option value="s" selected>PRESET - S</option>
+                            <% else %>
+                                <option value="s">S</option>
+                            <% end %>
+
+                            <% if @item.size_filter == "m" %>
+                                <option value="m" selected>PRESET - M</option>
+                            <% else %>
+                                <option value="m">M</option>
+                            <% end %>
+
+                            <% if @item.size_filter == "l" %>
+                                <option value="l" selected>PRESET - L</option>
+                            <% else %>
+                                <option value="l">L</option>
+                            <% end %>
+
+                            <% if @item.size_filter == "xl" %>
+                                <option value="xl" selected>PRESET - XL</option>
+                            <% else %>
+                                <option value="xl">XL</option>
+                            <% end %>
                         </select>
                     </div>
                     <div class="col-md-4" style="border-left: 1px solid white;">
                         <h4> COLOUR </h4>
                         <select name="colour" id="colour">
-                            <option value="blue">WHITE</option>
-                            <option value="green">BLACK</option>
-                            <option value="red">YELLOW</option>
-                            <option value="blue">BLUE</option>
-                            <option value="green">GREEN</option>
-                            <option value="red">RED</option>
+                            <% if @item.colour_filter == "white" %>
+                                <option value="white" selected>PRESET - WHITE</option>
+                            <% else %>
+                                <option value="white">WHITE</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "black" %>
+                                <option value="black" selected>PRESET - BLACK</option>
+                            <% else %>
+                                <option value="black">BLACK</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "yellow" %>
+                                <option value="yellow" selected>PRESET - YELLOW</option>
+                            <% else %>
+                                <option value="yellow">YELLOW</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "blue" %>
+                                <option value="blue" selected>PRESET - BLUE</option>
+                            <% else %>
+                                <option value="blue">BLUE</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "green" %>
+                                <option value="green" selected>PRESET - GREEN</option>
+                            <% else %>
+                                <option value="green">GREEN</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "red" %>
+                                <option value="red" selected>PRESET - RED</option>
+                            <% else %>
+                                <option value="red">RED</option>
+                            <% end %>
                         </select>
                     </div>
                     <div class="col-md-4" style="border-left: 1px solid white;">

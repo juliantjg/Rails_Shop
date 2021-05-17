@@ -10,6 +10,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :popularity
       t.boolean :favourite
 
+      t.string :colour_filter
+      t.string :size_filter
 
       t.timestamps
     end

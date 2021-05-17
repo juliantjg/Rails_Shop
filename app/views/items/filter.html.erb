@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
-        
+        <p style="color: red;"> <%= @message %> </p>
         <form action="/filter" method="POST">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
@@ -10,36 +10,36 @@
             <input type="checkbox" id="all" onClick="toggle(this)"> 
             <label for="all"> All </label><br>
 
-            <input type="checkbox" id="men" name="type" value="men">
+            <input type="checkbox" id="men" name="type[]" value="men">
             <label for="men"> Men</label><br>
-            <input type="checkbox" id="women" name="type" value="women">
+            <input type="checkbox" id="women" name="type[]" value="women">
             <label for="women"> Women</label><br>
-            <input type="checkbox" id="kids" name="type" value="kids">
+            <input type="checkbox" id="kids" name="type[]" value="kids">
             <label for="kids"> Kids</label><br>
-            <input type="checkbox" id="new" name="type" value="new">
+            <input type="checkbox" id="new" name="type[]" value="new">
             <label for="new"> New-Ins</label><br>
             <hr>
             <h1> Colours </h1>
             Select colours your prefer:
             <br>
-            <input type="checkbox" id="white" name="colour" value="white">
+            <input type="checkbox" id="white" name="colour[]" value="white">
             <label for="white"> White </label><span class="glyphicon glyphicon-leaf" aria-hidden="true" style="color: white;"></span><br>
-            <input type="checkbox" id="black" name="colour" value="black">
+            <input type="checkbox" id="black" name="colour[]" value="black">
             <label for="black"> Black</label><span class="glyphicon glyphicon-leaf" aria-hidden="true" style="color: black;"></span><br>
-            <input type="checkbox" id="yellow" name="colour" value="yellow">
+            <input type="checkbox" id="yellow" name="colour[]" value="yellow">
             <label for="yellow"> Yellow</label><span class="glyphicon glyphicon-leaf" aria-hidden="true" style="color: yelow;"></span><br>
-            <input type="checkbox" id="red" name="colour" value="red">
+            <input type="checkbox" id="red" name="colour[]" value="red">
             <label for="red"> Red</label><span class="glyphicon glyphicon-leaf" aria-hidden="true" style="color: red;"></span><br>
-            <input type="checkbox" id="green" name="colour" value="green">
+            <input type="checkbox" id="green" name="colour[]" value="green">
             <label for="green"> Green</label><span class="glyphicon glyphicon-leaf" aria-hidden="true" style="color: green;"></span><br>
-            <input type="checkbox" id="blue" name="colour" value="blue">
+            <input type="checkbox" id="blue" name="colour[]" value="blue">
             <label for="blue"> Blue</label><span class="glyphicon glyphicon-leaf" aria-hidden="true" style="color: blue;"></span><br><br>
             <hr>
-            <h1> Colours </h1>
+            <h1> Size </h1>
             Select a size your prefer:
             <br>
             <input type="radio" id="xs" name="size" value="xs">
-            <label for="xs"> XD </label><br>
+            <label for="xs"> XS </label><br>
             <input type="radio" id="s" name="size" value="s">
             <label for="s"> S</label><br>
             <input type="radio" id="m" name="size" value="m">

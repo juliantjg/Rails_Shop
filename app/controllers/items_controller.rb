@@ -28,10 +28,22 @@ class ItemsController < ApplicationController
     end
 
     def filter
-    end
+        @message = "Please check the filters below"
+        if params[:type] != nil and params[:colour] != nil and params[:size] != nil
+            collection_filter = params[:type]
+            colour_filter = params[:colour]
+            size_filter = params[:size]
 
-    def submit_filter
-        
+            collection_filter.each do |collection|
+                itemsTarget = Item.where(category: collection)
+                
+                itemsTarget.each do |item|
+                    item.colour_filter = colour_filter[0]
+                    item.size_filter = size_filter
+                    item.save
+                end
+            end
+            @message = "Filter Saved!"
+        end
     end
-
 end

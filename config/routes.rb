@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   # Filter APIs
   get '/filter', to: 'items#filter'
-  post '/filter', to: 'items#submit_filter'
+  post '/filter', to: 'items#filter'
 
   # Search API
   get '/items/search', to: 'items#search'
