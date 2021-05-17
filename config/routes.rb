@@ -21,7 +21,13 @@ Rails.application.routes.draw do
 
   # Item APIs
   get '/item/:id', to: 'items#show'
+
+  # Put item into shopping bag
   post '/item/tobag', to: 'items#tobag'
+
+  # Filter APIs
+  get '/filter', to: 'items#filter'
+  post '/filter', to: 'items#submit_filter'
 
   # Search API
   get '/items/search', to: 'items#search'

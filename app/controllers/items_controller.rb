@@ -25,6 +25,13 @@ class ItemsController < ApplicationController
         itemTarget.save
 
         redirect_to(location)
-
     end
+
+    def filter
+    end
+
+    def submit_filter
+        
+    end
+
 end
