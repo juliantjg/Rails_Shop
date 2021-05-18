@@ -3,11 +3,8 @@ class OmniauthCallbacksController < ApplicationController
         twitterHandle = auth.info.nickname
         twitterName = auth.info.name
         twitterEmail = auth.info.email
-
-        # session[:user_id] = auth.info.email
         
-
-        redirect_to root_path
+        redirect_to root_path, notice: "Twitter login successful!"
     end
 
     def auth
