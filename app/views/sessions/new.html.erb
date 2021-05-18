@@ -14,6 +14,9 @@
                 <%= f.label :password %>
                 <%= f.password_field :password, class: 'form-control' %>
                 <br><br>
+                <% flash.each do |type, msg| %>
+                    <p style="color: red;"> <%= msg %> </p>
+                <% end %>
                 <%= f.submit "Log in", class: "btn btn-default btn-lg btn-block" %>
             <% end %>
             <br>

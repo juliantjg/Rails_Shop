@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy' 
 
+  # Update User
+  get 'users/update', to: 'users#update'
+  post 'users/update', to: 'users#update'
+
   # Item APIs
   get '/item/:id', to: 'items#show'
 

@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2021_05_16_141019) do
     t.boolean "saveList"
     t.string "category"
     t.integer "popularity"
-    t.boolean "favourite"
     t.string "colour_filter"
     t.string "size_filter"
     t.datetime "created_at", null: false
