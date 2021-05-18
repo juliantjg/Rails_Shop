@@ -19,7 +19,11 @@
         </div>
         <a href="/login"><button class="btn btn-default btn-lg btn-block">Login</button></a>
         <br>
-        <button class="btn btn-primary btn-lg btn-block">Login with Twitter</button>
+        <%# <form action="/auth/twitter" method="POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token 
+        <button type="submit" class="btn btn-primary btn-lg btn-block" >Submit</button>
+        </form> %>
+         <%= button_to "Login with Twitter" , "/auth/twitter", method: :post, class:"btn btn-primary btn-lg btn-block" %> 
         <br><hr>
         <center> <p style="color:white;">New to us? <%= link_to "Sign up", signup_path %></p> </center>
         <br><br><br><br>
