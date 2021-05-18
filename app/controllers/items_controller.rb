@@ -15,18 +15,6 @@ class ItemsController < ApplicationController
         end
     end
 
-    def favourite
-        location = params[:location]
-        itemId_toSave = params[:itemId]
-        itemTargetList = Item.where(id: itemId_toSave)
-        itemTarget = itemTargetList[0]
-        itemFavourite = itemTarget.favourite
-        itemTarget.favourite = !itemFavourite
-        itemTarget.save
-
-        redirect_to(location)
-    end
-
     def filter
         @message = "Please check the filters below"
         if params[:type] != nil and params[:colour] != nil and params[:size] != nil
