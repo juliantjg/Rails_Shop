@@ -215,7 +215,7 @@
       }
 
       function toggle(source) {
-        checkboxes = document.getElementsByName('type');
+        checkboxes = document.getElementsByName('type[]');
         for(var i=0, n=checkboxes.length;i<n;i++) {
           checkboxes[i].checked = source.checked;
         }
