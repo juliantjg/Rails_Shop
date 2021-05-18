@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post '/save', to: 'home#save'
   get '/home/login', to: 'home#login'
 
+  # twitter
+  get '/auth/twitter/callback', to: 'omniauth_callbacks#twitter'
+
   # User APIs
   get 'users/new'
   get 'sessions/new'
