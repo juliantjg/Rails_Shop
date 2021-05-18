@@ -27,7 +27,7 @@ class HomeController < ApplicationController
   def collection
     parameter = params[:type]
     if parameter == 'all'
-      @type = 'ALL ITEMS'
+      @type = 'ALL'
       @items = Item.all
     elsif parameter == 'save'
       @type = 'SAVE'
