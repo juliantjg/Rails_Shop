@@ -10,12 +10,19 @@
                     <div class="col-md-4" style="height: 200px; background-color: silver;">
                         image
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <b> Name: </b> <%= item.name %> <br>
                         <b> Price: </b> $<%= item.price %> <br>
                         <b> Colour: </b> <%= shop.colour.upcase %> <br>
                         <b> Size: </b> <%= shop.size.upcase %> <br>
                         <b> Quantity: </b> <%= shop.quantity %>
+                    </div>
+                    <div class="col-md-2">
+                        <form action="/shoppingbag/delete" method="POST">
+                            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                            <input type="hidden" value="<%= item.id %>" name="delete_item_id">
+                            <button type="submit" class="btn btn-danger btn-lg">x</button>
+                        </form>
                     </div>
                 </div>
                 <br>

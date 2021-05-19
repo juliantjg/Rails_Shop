@@ -48,6 +48,9 @@ Rails.application.routes.draw do
   get '/shoppingbag/index', to: 'shoppingbags#index'
   post '/shoppingbag/checkout', to: 'shoppingbags#checkout'
 
+  # Delete an item from shopping bag
+  post '/shoppingbag/delete', to: 'shoppingbags#delete'
+
   resources :users
   post '/email', to: 'home#submit'
 end

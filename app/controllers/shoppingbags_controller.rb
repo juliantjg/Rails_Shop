@@ -56,4 +56,10 @@ class ShoppingbagsController < ApplicationController
 
         redirect_to("/shoppingbag/index")
     end
+
+    def delete
+        Shoppingbag.where(:user_id => current_user.id, :item_id => params[:delete_item_id]).destroy_all
+
+        redirect_to("/shoppingbag/index")
+    end
 end
