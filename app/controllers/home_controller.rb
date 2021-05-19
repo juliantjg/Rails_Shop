@@ -50,9 +50,16 @@ class HomeController < ApplicationController
   def save
     location = params[:location]
     itemId_toSave = params[:itemId]
+
+
     itemTargetList = Item.where(id: itemId_toSave)
     itemTarget = itemTargetList[0]
     itemSaveList = itemTarget.saveList
+
+    if itemSaveList == false
+      itemTarget.popularity += 1
+    end
+
     itemTarget.saveList = !itemSaveList
     itemTarget.save
 
