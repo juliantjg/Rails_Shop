@@ -44,6 +44,41 @@ class HomeController < ApplicationController
     #redirect_to("/home")
   end
 
+
+  def passwordsubmit
+    passwordEmail = params[:email]
+    
+    if User.find_by(email: passwordEmail) == nil
+      flash[:danger] = "Email does not exist"
+    else
+      NewsletterMailer.passwordMailer(passwordEmail).deliver
+      flash[:success] = "Password reset email sent!"
+    end
+    redirect_to("/forgotpassword")
+  end
+
+  def updatepass
+    @message=""
+    # new_email = params[:email]
+    emailEdit = params[:email]
+    new_pass = params[:password]
+    c_pass = params[:c_password]
+
+    if new_pass.size < 8 or new_pass.size > 20
+      @message="Password must be 8-20 characters long"
+    elsif new_pass != c_pass
+      @message="Confirm password incorrect"
+    else
+      user = User.find_by(email: emailEdit)
+      user.password = new_pass
+      user.save
+      @message="Update Successful"
+      redirect_to("/login")
+    end
+
+
+  end
+
   def help
   end
 

@@ -53,4 +53,9 @@ Rails.application.routes.draw do
 
   resources :users
   post '/email', to: 'home#submit'
+  post '/emailpassword', to: 'home#passwordsubmit'
+  get '/forgotpassword', to: 'home#forgot'
+
+  get '/forgotpassword/edit', to: 'home#resetpass'
+  post '/changepassword', to: 'home#updatepass'
 end
