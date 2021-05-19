@@ -22,11 +22,14 @@ class UsersController < ApplicationController
     @message=""
     new_email = params[:email]
     new_pass = params[:password]
+    c_pass = params[:c_password]
     if new_email.blank? or new_pass.blank?
       @message="Don't leave the form empty"
     else
       if new_pass.size < 8 or new_pass.size > 20
         @message="Password must be 8-20 characters long"
+      elsif new_pass != c_pass
+        @message="Confirm password incorrect"
       else
         user = User.find(current_user.id)
         user.email = new_email

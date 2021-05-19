@@ -10,12 +10,16 @@
             <label for="email"> Email </label> 
             <input class="form-control" type="email" name="email" placeholder=<%= current_user.email %> value=<%= current_user.email%>> <br>
             <label for="email"> New Password </label> 
-            <input class="form-control" type="password" name="password" placeholder="Enter your new password"> 
+            <input class="form-control" type="password" name="password" placeholder="Enter your new password"> <br>
+            <label for="email"> Confirm Password </label> 
+            <input class="form-control" type="password" name="c_password" placeholder="Confirm your new password"> 
 
             <br><br>
 
-            <button class="btn btn-default btn-lg btn-block">Submit</button>
-            <br><br><br><br>
+            <button class="btn btn-danger btn-lg btn-block">Submit</button>
+            <br>
         </form>
+        <a href="/users/<%= current_user.id %>"> <button class="btn btn-default btn-lg btn-block">Cancel</button> </a>
+        <br><br><br>
     </div>
 </div>
