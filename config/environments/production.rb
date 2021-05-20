@@ -103,5 +103,6 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-  config.action_mailer.default_url_options = { :host => 'hidden-beach-42020.herokuapp.com', protocol: 'http' }
+  host = 'hidden-beach-42020.herokuapp.com' #replace with your own url
+  config.action_mailer.default_url_options = { host: host }
 end
