@@ -79,8 +79,9 @@ class HomeController < ApplicationController
         @message="Token has expired"
         redirect_to("/forgotpassword")
       end
-      if new_pass.size < 8 or new_pass.size > 20
-        @message="Password must be 8-20 characters long"
+      pattern =  /[a-zA-Z0-9]{8,20}/ 
+      if new_pass.size < 8 or new_pass.size > 20 or !pattern.match?(new_pass)
+        @message="Password must be 8-20 characters long excluding special characters"
         # @message = passwordResetUser.user_id
       elsif new_pass != c_pass
         @message="Confirm password incorrect"
