@@ -51,7 +51,12 @@ class HomeController < ApplicationController
     if User.find_by(email: passwordEmail) == nil
       flash[:danger] = "Email does not exist"
     else
-      NewsletterMailer.passwordMailer(passwordEmail).deliver
+      user1 = User.find_by(email: passwordEmail)
+      user1.generate_token(:password_token)
+      user1.password_token_created_at = Time.zone.now
+      user1.save
+      puts(user1)
+      NewsletterMailer.passwordMailer(user1).deliver
       flash[:success] = "Password reset email sent!"
     end
     redirect_to("/forgotpassword")

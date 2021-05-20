@@ -8,11 +8,10 @@ class NewsletterMailer < ApplicationMailer
     end
 
 
-    def passwordMailer(email)
-        @email = email
-        user2 = User.find_by(email: email)
+    def passwordMailer(user)
+        @email = user.email
+        @user2 = User.find_by(email: user.email)
 
-        #@token = user2.signed_id(purpose:"changepassword", expires_in: 30.minutes)
         mail(to: @email, subject: 'Forgot your password?')
     end
 end
