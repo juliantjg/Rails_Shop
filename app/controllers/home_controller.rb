@@ -63,7 +63,6 @@ class HomeController < ApplicationController
 
   def updatepass
     @message=""
-    # new_email = params[:email]
     emailToken = params[:token]
     new_pass = params[:password]
     c_pass = params[:c_password]
@@ -84,8 +83,6 @@ class HomeController < ApplicationController
       @message="Update Successful"
       redirect_to("/login")
     end
-
-
   end
 
   def help
