@@ -52,10 +52,13 @@ Rails.application.routes.draw do
   post '/shoppingbag/delete', to: 'shoppingbags#delete'
 
   resources :users
+
   post '/email', to: 'home#submit'
+
+  # Forgot password APIs 
   post '/emailpassword', to: 'home#passwordsubmit'
   get '/forgotpassword', to: 'home#forgot'
 
   get '/forgotpassword/edit', to: 'home#resetpass'
-  post '/changepassword', to: 'home#updatepass'
+  post '/changepassword', to: 'home#resetpass' 
 end

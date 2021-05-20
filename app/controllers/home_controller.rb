@@ -44,7 +44,6 @@ class HomeController < ApplicationController
     #redirect_to("/home")
   end
 
-
   def passwordsubmit
     passwordEmail = params[:email]
     
@@ -52,36 +51,46 @@ class HomeController < ApplicationController
       flash[:danger] = "Email does not exist"
     else
       user1 = User.find_by(email: passwordEmail)
-      user1.generate_token(:password_token)
-      user1.password_token_created_at = Time.zone.now
-      user1.save
-      NewsletterMailer.passwordMailer(user1).deliver
+
+      passwordResetUser1 = PasswordResetUser.create(user_id: user1.id, password_token_created_at: Time.zone.now)
+      passwordResetUser1.generate_token(:password_token)
+      passwordResetUser1.save
+
+      # user1.generate_token(:password_token)
+      # user1.password_token_created_at = Time.zone.now
+      # user1.save
+
+      NewsletterMailer.passwordMailer(passwordResetUser1).deliver
       flash[:success] = "Password reset email sent!"
     end
     redirect_to("/forgotpassword")
   end
 
-  def updatepass
+  def resetpass
     @message=""
-    emailToken = params[:token]
-    new_pass = params[:password]
-    c_pass = params[:c_password]
+    if params[:password] != nil and params[:c_password] != nil
+      emailToken = params[:token]
+      new_pass = params[:password]
+      c_pass = params[:c_password]
 
-    #user = User.find_by(password_token: emailToken)
-    #if user.password_token_created_at < 30.minutes.ago
-      #@message="Token has expired"
-      #redirect_to forgotpassword_edit_path
-    #end
-    if new_pass.size < 8 or new_pass.size > 20
-      @message="Password must be 8-20 characters long"
-    elsif new_pass != c_pass
-      @message="Confirm password incorrect"
-    else
-      #user = User.find_by(password_token: emailToken)
-      user.password = new_pass
-      user.save
-      @message="Update Successful"
-      redirect_to("/login")
+      passwordResetUser = PasswordResetUser.find_by(password_token: emailToken)
+
+      if passwordResetUser.password_token_created_at < 30.minutes.ago
+        @message="Token has expired"
+        redirect_to("/forgotpassword")
+      end
+      if new_pass.size < 8 or new_pass.size > 20
+        @message="Password must be 8-20 characters long"
+        # @message = passwordResetUser.user_id
+      elsif new_pass != c_pass
+        @message="Confirm password incorrect"
+      else
+        user = User.find_by(id: passwordResetUser.user_id)
+        user.password = new_pass
+        user.save
+        flash[:success] = "Password reset successful!"
+        redirect_to("/login")
+      end
     end
   end
 

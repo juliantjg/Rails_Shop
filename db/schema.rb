@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_234351) do
+ActiveRecord::Schema.define(version: 2021_05_20_053908) do
 
   create_table "images", force: :cascade do |t|
     t.string "image_url"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2021_05_19_234351) do
     t.integer "popularity"
     t.string "colour_filter"
     t.string "size_filter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "password_reset_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "password_token"
+    t.string "password_token_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
