@@ -148,6 +148,8 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
+    pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
     public_suffix (4.0.6)
     puma (5.3.0)
       nio4r (~> 2.0)
@@ -248,10 +250,11 @@ DEPENDENCIES
   mini_magick (~> 4.11)
   omniauth-rails_csrf_protection (~> 1.0)
   omniauth-twitter (~> 1.4)
+  pg (~> 1.2, >= 1.2.3)
   puma (~> 5.2, >= 5.2.2)
   rails (~> 5.2.5)
   sass-rails (~> 6.0)
-  sqlite3
+  sqlite3 (~> 1.4)
   turbolinks (~> 5.2, >= 5.2.1)
   tzinfo-data
   uglifier (~> 4.2)
