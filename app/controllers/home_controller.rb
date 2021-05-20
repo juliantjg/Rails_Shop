@@ -55,7 +55,6 @@ class HomeController < ApplicationController
       user1.generate_token(:password_token)
       user1.password_token_created_at = Time.zone.now
       user1.save
-      puts(user1)
       NewsletterMailer.passwordMailer(user1).deliver
       flash[:success] = "Password reset email sent!"
     end
@@ -65,16 +64,21 @@ class HomeController < ApplicationController
   def updatepass
     @message=""
     # new_email = params[:email]
-    emailEdit = params[:email]
+    emailToken = params[:token]
     new_pass = params[:password]
     c_pass = params[:c_password]
 
+    #user = User.find_by(password_token: emailToken)
+    #if user.password_token_created_at < 30.minutes.ago
+      #@message="Token has expired"
+      #redirect_to forgotpassword_edit_path
+    #end
     if new_pass.size < 8 or new_pass.size > 20
       @message="Password must be 8-20 characters long"
     elsif new_pass != c_pass
       @message="Confirm password incorrect"
     else
-      user = User.find_by(email: emailEdit)
+      #user = User.find_by(password_token: emailToken)
       user.password = new_pass
       user.save
       @message="Update Successful"
