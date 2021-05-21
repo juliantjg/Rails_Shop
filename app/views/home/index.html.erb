@@ -11,8 +11,8 @@
         <% end %>
 
         <center> <h3> Home </h3> </center>
-        <div class="row" style="height: 450px; background-image: linear-gradient(to top, grey , silver);">
-            <%# <%= image_tag @randomItem.images[0].image_url, :style => "height: 100%; width: 100%;" %>
+        <div class="row" style="height: 450px; background-image: linear-gradient(to top, grey , silver); border-style: solid;">
+            <img src="<%= @randomItem.images[0].image_url %>" style="height:100%; width:100%;" >
             
         </div>
         <div class="row">
@@ -54,8 +54,9 @@
                     <div class="col-md-4">
                         <a href="/item/<%= item.id %>">
                            
-                                <div style="height: 200px; background-color: silver;">
-                                    
+                                <div style="height: 200px; background-color: silver; border-style: solid;"">
+
+                                    <img src="<%= item.images[0].image_url %>" style="height:100%; width:100%;" >
                                     
                                 </div>
                                 

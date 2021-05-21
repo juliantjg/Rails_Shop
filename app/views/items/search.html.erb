@@ -18,8 +18,8 @@
                 <% @found.each do |item| %>
                     <div class="col-md-6">
                          <a href="/item/<%= item.id %>">
-                            <div style="height: 300px; background-color: silver;">
-                                
+                            <div style="height: 300px; background-color: silver; border-style: solid;"">
+                                <img src="<%= item.images[0].image_url %>" style="height:100%; width:100%;" >
                             </div>
                         </a>
                         <h4> <%= item.name %> </h4>

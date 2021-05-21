@@ -7,8 +7,8 @@
             <% @shoppingbag.each do |shop| %>
                 <% item = Item.find(shop.item_id) %>
                 <div class="row">
-                    <div class="col-md-4" style="height: 200px; background-color: silver;">
-                        image
+                    <div class="col-md-4" style="height: 200px; background-color: silver; border-style: solid;"">
+                        <img src="<%= item.images[0].image_url %>" style="height:100%; width:100%;" >
                     </div>
                     <div class="col-md-6">
                         <b> Name: </b> <%= item.name %> <br>
