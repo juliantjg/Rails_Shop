@@ -1,5 +1,7 @@
 # Rails Shop App
 
+Deployed app on Heroku: https://rails-shop-app.herokuapp.com/
+
 ## Team:
 
 Julian Tjiong (s3786866@student.rmit.edu.au)
