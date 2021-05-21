@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3" style="background: linear-gradient(to bottom, #000000 0%, #ffffff 318%);">
+        <div class="container">
+            <div class="row" style="height:80px;">
+            </div>
+            <div class="row" style="height:80px;">
+                <span class="glyphicon glyphicon-tower" aria-hidden="true" style="font-size: 55px; padding-left: 20px; color: white;"></span>
+            </div>
+            <div class="row" style="color:white;">
+                <b><h1> Fashion+ </h1></b>
+            </div>
+            <div class="row" style="height:110px; color:white;">
+                <h3> Quality is not an act, <br>
+                        it is a habit. </h3>
+            </div>
+            <div class="row" style="height: 150px;">
+            </div>
+            
+        </div>
+        <a href="/login"><button class="btn btn-default btn-lg btn-block">Login</button></a>
+        <br>
+        <%# <form action="/auth/twitter" method="POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token 
+        <button type="submit" class="btn btn-primary btn-lg btn-block" >Submit</button>
+        </form> %>
+         <%= button_to "Login with Twitter" , "/auth/twitter", method: :post, class:"btn btn-primary btn-lg btn-block" %> 
+        <br><hr>
+        <center> <p style="color:white;">New to us? <%= link_to "Sign up", signup_path %></p> </center>
+        <center> <p style="color:white;"> <%= link_to "Forgot Password?", "/forgotpassword" %></p> </center>
+        <br><br><br><br>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<% if @user.errors.any? %>
+ <div id="error_messages">
+ <div class="alert alert-danger">
+ The form contains <%= pluralize(@user.errors.count, "error") %>.
+ </div>
+ <p style="color:red"> Reminder: Password must be 8-20 characters excluding special characters </p>
+ <ul>
+ <% @user.errors.full_messages.each do |message| %>
+ <li><%= message %></li>
+ <% end %>
+ </ul>
+ </div>
+<% end %>

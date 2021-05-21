@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="row">
+            <form method="POST" action="/items/search">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." name="key" id="key">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Go!</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <br><br><br>
+        <% if @found != nil %>
+            <div class="row">
+                <% @found.each do |item| %>
+                    <div class="col-md-6">
+                         <a href="/item/<%= item.id %>">
+                            <div style="height: 300px; background-color: silver; border-style: solid;"">
+                                <img src="<%= item.images[0].image_url %>" style="height:100%; width:100%;" >
+                            </div>
+                        </a>
+                        <h4> <%= item.name %> </h4>
+                        <form action="/save" method="POST">
+                            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+                            <input type="hidden" value="<%= item.id %>" name="itemId">
+                            <input type="hidden" value="/collection/<%= item.category %>" name="location">
+                            <% if item.saveList  %>
+                                <button type="submit" class="btn btn-warning">Remove from saved</button>
+                            <% else %>
+                                <button type="submit" class="btn btn-success">Save item</button>
+                            <% end %>
+                        </form>
+                        <br><br>
+                    </div>
+                <% end %>
+            </div>
+        <% else %>
+            <h3> <center> Type something in the search bar <br>
+                    and hit go... </center> </h3>
+            <br><br><br><br><br><br>
+        <% end %>
+    </div>
+</div>

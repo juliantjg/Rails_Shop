@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+        <center> <h3> <%= @type %> </h3> </center>
+        <br>
+        <a href="/filter"><span class="glyphicon glyphicon-list" aria-hidden="true"> Filters</span></a>
+
+        
+        <hr>
+        <div class="row">
+            <% @items.each do |item| %>
+                <div class="col-md-6">
+                    <a href="/item/<%= item.id %>">
+                        <div style="height: 300px; background-color: silver; border-style: solid;"">
+                            <img src="<%= item.images[0].image_url %>" style="height:100%; width:100%;">
+                        </div>
+                    </a>
+
+                    <h4> <%= item.name %>  </h4>
+                    <form action="/save" method="POST">
+                        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+                        <input type="hidden" value="<%= item.id %>" name="itemId">
+                        <input type="hidden" value="/collection/<%= @type.downcase %>" name="location">
+                        <% if item.saveList  %>
+                            <button type="submit" class="btn btn-warning">Remove from saved</button>
+                        <% else %>
+                            <button type="submit" class="btn btn-success">Save item</button>
+                        <% end %>
+                    </form>
+                    <br> <br>
+                </div>
+            <% end %>
+        </div>
+        <br><br>
+    </div>
+</div>

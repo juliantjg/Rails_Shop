@@ -1,0 +1,151 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="row">
+            
+            <div class="col-md-4">
+                <div style="height: 200px; background-color: silver; border-style: solid;">
+                    <img src="<%= @item.images[0].image_url %>" style="height:100%; width:100%;" >
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="height: 200px; background-color: silver; border-style: solid;">
+                    <img src="<%= @item.images[1].image_url %>" style="height:100%; width:100%;" >
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="height: 200px; background-color: silver; border-style: solid;">
+                    <img src="<%= @item.images[2].image_url %>" style="height:100%; width:100%;" >
+                </div>
+            </div>
+
+        </div>
+        <br><br>
+
+        <div class="row" style="background-color: silver;">
+            <center>
+            <h2> <%= @item.name %> </h2>
+
+            <h3> $<%= @item.price %> </h3>
+            <h5> <%= @item.description %> </h5>
+
+             <form action="/save" method="POST">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+                <input type="hidden" value="<%= @item.id %>" name="itemId">
+                <input type="hidden" value="/item/<%= @item.id %>" name="location">
+                <% if @item.saveList  %>
+                    <button type="submit" class="btn btn-warning">Remove from saved</button>
+                <% else %>
+                    <button type="submit" class="btn btn-success">Save item</button>
+                <% end %>
+            </form>
+
+            </center>
+            <hr>
+
+            <form action="/shoppingbag/add" method="POST">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <center>
+                <input type="hidden" value="<%= @item.id %>" name="itemId">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4> SIZE </h4>
+                        <select name="size" id="size">
+                            <% if @item.size_filter == "xs" %>
+                                <option value="xs" selected>PRESET - XS</option>
+                            <% else %>
+                                <option value="xs">XS</option>
+                            <% end %>
+
+                            <% if @item.size_filter == "s" %>
+                                <option value="s" selected>PRESET - S</option>
+                            <% else %>
+                                <option value="s">S</option>
+                            <% end %>
+
+                            <% if @item.size_filter == "m" %>
+                                <option value="m" selected>PRESET - M</option>
+                            <% else %>
+                                <option value="m">M</option>
+                            <% end %>
+
+                            <% if @item.size_filter == "l" %>
+                                <option value="l" selected>PRESET - L</option>
+                            <% else %>
+                                <option value="l">L</option>
+                            <% end %>
+
+                            <% if @item.size_filter == "xl" %>
+                                <option value="xl" selected>PRESET - XL</option>
+                            <% else %>
+                                <option value="xl">XL</option>
+                            <% end %>
+                        </select>
+                    </div>
+                    <div class="col-md-4" style="border-left: 1px solid white;">
+                        <h4> COLOUR </h4>
+                        <select name="colour" id="colour">
+                            <% if @item.colour_filter == "white" %>
+                                <option value="white" selected>PRESET - WHITE</option>
+                            <% else %>
+                                <option value="white">WHITE</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "black" %>
+                                <option value="black" selected>PRESET - BLACK</option>
+                            <% else %>
+                                <option value="black">BLACK</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "yellow" %>
+                                <option value="yellow" selected>PRESET - YELLOW</option>
+                            <% else %>
+                                <option value="yellow">YELLOW</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "blue" %>
+                                <option value="blue" selected>PRESET - BLUE</option>
+                            <% else %>
+                                <option value="blue">BLUE</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "green" %>
+                                <option value="green" selected>PRESET - GREEN</option>
+                            <% else %>
+                                <option value="green">GREEN</option>
+                            <% end %>
+
+                            <% if @item.colour_filter == "red" %>
+                                <option value="red" selected>PRESET - RED</option>
+                            <% else %>
+                                <option value="red">RED</option>
+                            <% end %>
+                        </select>
+                    </div>
+                    <div class="col-md-4" style="border-left: 1px solid white;">
+                        <h4> QUANTITY </h4>
+                        <select name="quantity" id="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                
+                </center>
+                <br><br>
+                <% if @chosen == false  %>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Add to bag</button>
+                <% else %>
+                    <center> <h4> Already in bag </h4> </center>
+                <% end %>
+            </form>
+            <br>
+            <center> <h6> FREE SHIPPING STARTING $250 </h6> </center>
+            
+        </div>
+        <br><br>
+    </div>
+</div>

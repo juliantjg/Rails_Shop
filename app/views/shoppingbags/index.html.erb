@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+        <br><br>
+        <% if !@empty %>
+            <center> <h3> Bag (<%= @size %>) </h3> </center>
+            <br><br>
+            <% @shoppingbag.each do |shop| %>
+                <% item = Item.find(shop.item_id) %>
+                <div class="row">
+                    <div class="col-md-4" style="height: 200px; background-color: silver; border-style: solid;"">
+                        <img src="<%= item.images[0].image_url %>" style="height:100%; width:100%;" >
+                    </div>
+                    <div class="col-md-6">
+                        <b> Name: </b> <%= item.name %> <br>
+                        <b> Price: </b> $<%= item.price %> <br>
+                        <b> Colour: </b> <%= shop.colour.upcase %> <br>
+                        <b> Size: </b> <%= shop.size.upcase %> <br>
+                        <b> Quantity: </b> <%= shop.quantity %>
+                    </div>
+                    <div class="col-md-2">
+                        <form action="/shoppingbag/delete" method="POST">
+                            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                            <input type="hidden" value="<%= item.id %>" name="delete_item_id">
+                            <button type="submit" class="btn btn-default btn-lg">X</button>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <hr>
+            <% end %>
+            <br><br>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1> Total </h1>
+                </div>
+                <div class="col-md-3">
+                    <h1> $<%= @subTotal %> </h1>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+
+                <% if @rated == true %>
+                    <form action="/shoppingbag/checkout" method="POST">
+                        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                    </form>
+                
+                <% else %>
+
+                    <!-- Trigger/Open The Modal -->
+                    <button id="myBtn" type="submit" class="btn btn-primary btn-lg btn-block">Checkout</button>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <center> <h2>Rate Us</h2> <br>
+                            <hr>
+                            Rate your experience with this app <br><br>
+
+                            <input type="radio" id="terrible" name="gender" value="male">
+                            <label for="male">Terrible</label><br>
+                            <input type="radio" id="ok" name="gender" value="female">
+                            <label for="female">Okay</label><br>
+                            <input type="radio" id="good" name="gender" value="other">
+                            <label for="other">Good</label><br>
+                            <input type="radio" id="amazing" name="gender" value="amazing"> 
+                            <label for="other">Amazing</label>
+
+                            <br><br><br><br>
+
+                            <form action="/shoppingbag/checkout" method="POST">
+                                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                                <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
+                            </form>
+
+                            </center>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <br><br><br>
+        <% else %>
+            <div class="row" style="height: 100px;">
+            </div>
+            <div class="row">
+                <center><h1> It's lonely here </h1>
+                <h5> <p> Start shopping and add more items to the bag, <br> 
+                        and then there will be joy here... </p></h5> </center>
+            </div>
+            <div class="row" style="height: 200px;">
+            </div>
+        <% end %>
+
+    </div>
+</div>

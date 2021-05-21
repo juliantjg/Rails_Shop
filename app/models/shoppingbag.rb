@@ -1,0 +1,2 @@
+class Shoppingbag < ApplicationRecord
+end

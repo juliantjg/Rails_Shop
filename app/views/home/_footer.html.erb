@@ -1,0 +1,25 @@
+
+<nav class="navbar navbar-default">
+
+
+    <div class="navbar-centered" id="bs-example-navbar-collapse-1" style="transform: translate(-15%, -30%);">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/home"><span class="glyphicon glyphicon-home" aria-hidden="true" style="font-size: 35px; padding-right: 150px"> 
+        <p style="font-size:20px;"> Home </p> </span></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true" style="font-size: 35px; padding-right: 150px">
+        <p style="font-size:20px;"> Scan </p> </span></a></li>
+        <li><a href="/collection/save"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="font-size: 35px; padding-right: 150px">
+        <p style="font-size:20px;"> Saved </p> </span></a></li>
+
+        <% if current_user != nil %>
+          <li><a href="/users/<%= current_user.id %>"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 35px; padding-right: 150px">
+          <p style="font-size:20px;"> Account </p> </span></a></li>
+        <% else %>
+          <li><a href="/home/login"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 35px; padding-right: 150px">
+          <p style="font-size:20px;"> Account </p> </span></a></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+

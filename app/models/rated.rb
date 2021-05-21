@@ -1,0 +1,2 @@
+class Rated < ApplicationRecord
+end
