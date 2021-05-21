@@ -159,13 +159,19 @@
         <% end %>
       </div>
 
-      <div class="row" style="height: 80px;">
+      <div class="row" style="height: 30px;">
       </div>
 
       <div class="spana">
         <%= link_to "/help" do %>
           <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
           Help & Support
+        <% end %>
+        <br>
+        <% if current_user == nil %>
+          <a href="/home/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"> Login</span></a>
+        <% else %>
+          <%= link_to "/logout", method: :delete do %><span class="glyphicon glyphicon-log-out" aria-hidden="true"> Logout</span><% end %>
         <% end %>
       </div>
 
