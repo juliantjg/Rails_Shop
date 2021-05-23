@@ -3,8 +3,9 @@ TEAM : Julian Tjiong (s3786866) and Cass Ilangantileke (s3742928) 50:50 contribu
 ATTEMPTED LEVEL : Reached 90+ level (only finished Deletion and Admin Portal)
 
 TIME LOGS : 
-Julian(s3786866) = 37 hours total
-Cass  (s3742928) = 35 hours total
+Julian(s3786866) = 35.5 hours total
+Cass  (s3742928) = 32 hours total
+https://docs.google.com/spreadsheets/d/1s3MTq0Qni0MsHlSxq1_DisAxBSEkubYW4e757HcfVv4/edit?usp=sharing
 
 HEROKU DEPLOYMENT URL: https://rails-shop-app.herokuapp.com/
 
