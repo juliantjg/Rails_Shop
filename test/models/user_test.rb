@@ -21,7 +21,7 @@ class UserTest < ActiveSupport::TestCase
 
     test "password should be 8-20 characters excluding special characters" do
         @user.password = "xxxxxxx*"
-        assert_not @user.valid?
+        assert_not @user.valid? 
     end
 
     test "email should have an email format" do
