@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_23_080412) do
+ActiveRecord::Schema.define(version: 2021_05_23_085923) do
 
   create_table "adminlists", force: :cascade do |t|
     t.string "email"
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_080412) do
 
   create_table "purchasedlists", force: :cascade do |t|
     t.integer "item_id"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +71,12 @@ ActiveRecord::Schema.define(version: 2021_05_23_080412) do
     t.string "size"
     t.integer "quantity"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscribedemails", force: :cascade do |t|
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

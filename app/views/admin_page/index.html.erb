@@ -1,9 +1,9 @@
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
         <% if @authorized %>
-            <h1> Welcome, admin <%= current_user.username %>! </h1>
+            <center> <h1>Welcome, admin <%= current_user.username %>! </h1>
             <hr><br>
-            <h3> Overall summary of the website: </h3>
+            <h3>Overall summary of the website: </h3> </center>
             <br><br>
             <div class="row">
                 <h4> Saved items: </h4>
@@ -24,8 +24,8 @@
                     </div>
                 <% end %>
             </div>
-            <div class="row">
             <br><br>
+            <div class="row">
                 <h4> Ratings: </h4>
                 <div>
                     <hr>
@@ -36,6 +36,18 @@
                     <hr>
                 </div>
             </div>
+            <br><br>
+            <div class="row">
+                <h4> Subscribed emails: </h4>
+                <hr>
+                <% @subscribedemails.each do |email| %>
+                
+                    <%= email.email %>
+                    <br>
+                <% end %>
+            </div>
+
+            <br><br><br><br>
             
         <% else %>
             <div class="row" style="height: 100px;">

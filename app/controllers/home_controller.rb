@@ -38,8 +38,18 @@ class HomeController < ApplicationController
     end
   end
 
+  def unsubscribe
+    if Subscribedemail.find_by(email: current_user.email) != nil
+      Subscribedemail.where(email: current_user.email).destroy_all
+    end
+  end
+
   def submit
     NewsletterMailer.newsMailer(params[:email]).deliver
+
+    if Subscribedemail.find_by(email: params[:email]) == nil
+      Subscribedemail.create(email: params[:email])
+    end
     
     #redirect_to("/home")
   end

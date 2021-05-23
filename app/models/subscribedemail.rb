@@ -1,0 +1,2 @@
+class Subscribedemail < ApplicationRecord
+end

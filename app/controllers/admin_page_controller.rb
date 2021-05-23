@@ -16,6 +16,8 @@ class AdminPageController < ApplicationController
                 @amazing = Rating.where(rating: 'amazing').count
 
                 @purchased_items = Purchasedlist.all
+
+                @subscribedemails = Subscribedemail.all
             end
         end
     end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/save', to: 'home#save'
   get '/home/login', to: 'home#login'
 
-  # twitter
+  # Twitter APIs
   get '/auth/twitter/callback', to: 'omniauth_callbacks#twitter'
 
   # User APIs
@@ -65,4 +65,7 @@ Rails.application.routes.draw do
 
   # Admin dashboard APIs
   get '/admin', to: 'admin_page#index'
+
+  # Unsubscribe to newsletter APIs
+  post '/home/unsubscribe', to: 'home#unsubscribe'
 end
