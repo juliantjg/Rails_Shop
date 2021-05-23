@@ -1,4 +1,4 @@
-# Rails Shop App
+# RAD2021_s3742928_s3786866
 
 Deployed app on Heroku: https://rails-shop-app.herokuapp.com/
 
