@@ -4,12 +4,12 @@ one:
   name: MyString
   price: 1.5
   description: MyString
-  image: MyString
+  # image: MyString
   saveList: false
 
 two:
   name: MyString
   price: 1.5
   description: MyString
-  image: MyString
+  # image: MyString
   saveList: false
