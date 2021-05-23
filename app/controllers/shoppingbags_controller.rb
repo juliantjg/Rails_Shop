@@ -46,6 +46,44 @@ class ShoppingbagsController < ApplicationController
     end
 
     def checkout
+        bag_items = Shoppingbag.where(user_id: current_user)
+
+        bag_items.each do |bag_item|
+            # If items never purchased
+            if Purchasedlist.find_by(item_id: bag_item.item_id) == nil
+                Purchasedlist.create(item_id: bag_item.item_id)
+            end
+        end
+
+        Shoppingbag.where(user_id: current_user).destroy_all
+
+        user_rated = Rated.where(user_id: current_user.id)
+
+        if user_rated.size == 0
+            Rated.create(user_id: current_user.id)
+        end
+
+        redirect_to("/shoppingbag/index")
+    end
+
+    def rating_checkout
+        # Rating 
+        if params[:rating] != nil
+            rating = params[:rating]
+
+            Rating.create(rating: rating)
+        end
+
+        # Below is the regular checkout
+        bag_items = Shoppingbag.where(user_id: current_user)
+
+        bag_items.each do |bag_item|
+            # If items never purchased
+            if Purchasedlist.find_by(item_id: bag_item.item_id) == nil
+                Purchasedlist.create(item_id: bag_item.item_id)
+            end
+        end
+
         Shoppingbag.where(user_id: current_user).destroy_all
 
         user_rated = Rated.where(user_id: current_user.id)

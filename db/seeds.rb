@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: 'Test1', email: 'test1@email.com', password: 'testtest', password_confirmation: 'testtest')
+User.create(username: 'admin', email: 'admin@admin.com', password: 'Rails2021', password_confirmation: 'Rails2021')
+User.create(username: 'RAD', email: 'rad2021rmit@gmail.com', password: 'Rails2021', password_confirmation: 'Rails2021')
+
+Adminlist.create(email: 'admin@admin.com')
 
 
 item1 = Item.create(name: 'Winter Vibes', price: 30, description: 'Cold and Brilliant start', saveList: false, category: 'men', popularity: 0, colour_filter: "", size_filter: "")

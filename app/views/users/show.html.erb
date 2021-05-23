@@ -15,6 +15,12 @@
                 Subscription </h4> </a>
                 <%= link_to "/logout", method: :delete do %> <h4><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                 Logout </h4> <% end %>
+                <br>
+
+                <% if @authorized %>
+                    <a href="/admin"> <h4><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                    ADMIN DASHBOARD </h4> </a>
+                <% end %>
                 <br><br>
             </div>
         </div>

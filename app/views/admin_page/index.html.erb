@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+        <% if @authorized %>
+            <h1> Welcome, admin <%= current_user.username %>! </h1>
+            <hr><br>
+            <h3> Overall summary of the website: </h3>
+            <br><br>
+            <div class="row">
+                <h4> Saved items: </h4>
+                <hr>
+                <% @saved_items.each do |item| %>
+                    <div class="col-md-4">
+                        <%= item.name %>
+                    </div>
+                <% end %>
+            </div>
+            <br><br>
+            <div class="row">
+                <h4> Purchased items: </h4>
+                <hr>
+                <% @purchased_items.each do |item| %>
+                    <div class="col-md-4">
+                        <%= Item.find_by(id: item.item_id).name %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="row">
+            <br><br>
+                <h4> Ratings: </h4>
+                <div>
+                    <hr>
+                    Terrible: <%= @terrible %> <br>
+                    OK: <%= @ok %> <br>
+                    Good: <%= @good %> <br>
+                    Amazing: <%= @amazing %> <br>
+                    <hr>
+                </div>
+            </div>
+            
+        <% else %>
+            <div class="row" style="height: 100px;">
+            </div>
+            <div class="row">
+                <center><h1> Unauthorized </h1>
+                <h5> <p> This page is restricted for admin only </p></h5> </center>
+            </div>
+            <div class="row" style="height: 200px;">
+            </div>
+        <% end %>
+    </div>
+</div>

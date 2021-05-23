@@ -1,0 +1,2 @@
+class Purchasedlist < ApplicationRecord
+end

@@ -16,6 +16,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    email = current_user.email
+    is_admin = Adminlist.find_by(email: email)
+    if is_admin == nil
+        @authorized = false
+    else
+        @authorized = true
+    end
   end
 
   def update

@@ -60,20 +60,22 @@
                             <span class="close">&times;</span>
                             <center> <h2>Rate Us</h2> <br>
                             <hr>
-                            Rate your experience with this app <br><br>
+                            Rate your experience with this app <br>
+                            (You can leave this empty) <br><br>
 
-                            <input type="radio" id="terrible" name="gender" value="male">
-                            <label for="male">Terrible</label><br>
-                            <input type="radio" id="ok" name="gender" value="female">
-                            <label for="female">Okay</label><br>
-                            <input type="radio" id="good" name="gender" value="other">
-                            <label for="other">Good</label><br>
-                            <input type="radio" id="amazing" name="gender" value="amazing"> 
-                            <label for="other">Amazing</label>
+                            <form action="/shoppingbag/rating_checkout" method="POST">
+                                <input type="radio" id="terrible" name="rating" value="terrible">
+                                <label for="terrible">Terrible</label><br>
+                                <input type="radio" id="ok" name="rating" value="ok">
+                                <label for="ok">Okay</label><br>
+                                <input type="radio" id="good" name="rating" value="good">
+                                <label for="good">Good</label><br>
+                                <input type="radio" id="amazing" name="rating" value="amazing"> 
+                                <label for="amazing">Amazing</label>
 
-                            <br><br><br><br>
+                                <br><br><br><br>
 
-                            <form action="/shoppingbag/checkout" method="POST">
+                            
                                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                                 <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
                             </form>

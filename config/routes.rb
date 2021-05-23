@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   post '/shoppingbag/add', to: 'shoppingbags#add'
   get '/shoppingbag/index', to: 'shoppingbags#index'
   post '/shoppingbag/checkout', to: 'shoppingbags#checkout'
+  post '/shoppingbag/rating_checkout', to: 'shoppingbags#rating_checkout'
 
   # Delete an item from shopping bag
   post '/shoppingbag/delete', to: 'shoppingbags#delete'
@@ -61,4 +62,7 @@ Rails.application.routes.draw do
 
   get '/forgotpassword/edit', to: 'home#resetpass'
   post '/changepassword', to: 'home#resetpass' 
+
+  # Admin dashboard APIs
+  get '/admin', to: 'admin_page#index'
 end
