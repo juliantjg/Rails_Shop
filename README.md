@@ -4,7 +4,7 @@ By: Julian Tjiong & Cass Ilangantileke
 
 ## Overview
 
-Rails Shop is a clothes vendor web application developed using Ruby on Rails framework.
+Rails Shop is a clothing vendor web application developed using Ruby on Rails framework.
 Access the deployed app on Heroku: https://rails-shop-app.herokuapp.com/
 
 ## Functionalities
